@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive model of a proposed Maryland large-employer compensation-shortfall excise tax.">
+  <title>Maryland Wage-Shortfall Tax Model</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav wrap">
+      <a class="brand" href="#top" aria-label="Maryland Wage-Shortfall Tax Model home">
+        <span class="flag-mark" aria-hidden="true"></span>
+        <span>MD Policy Lab</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="#pipeline">SNAP pipeline</a>
+        <a class="nav-link" href="#methodology">Methodology</a>
+      </div>
+    </nav>
+
+    <div class="hero-grid wrap" id="top">
+      <div>
+        <p class="eyebrow">Interactive tax-reform model</p>
+        <h1>What if poverty wages cost more than paying a living wage?</h1>
+        <p class="lede">This calculator models a proposed Maryland excise tax on large employers' wage shortfalls. Change the assumptions to see the effects on workers, employers, and state revenue.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#calculator">Run the numbers</a>
+          <button class="button ghost" id="resetTop" type="button">Reset assumptions</button>
+        </div>
+      </div>
+      <aside class="formula-card" aria-label="Core tax formula">
+        <span class="formula-label">Core formula</span>
+        <div class="formula"><span>Tax</span><b>=</b><span>Shortfall</span><b>&times;</b><span>Hours</span><b>&times;</b><span>Rate</span></div>
+        <p>Only positive shortfalls count. If the employer pays the benchmark, the tax is zero.</p>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section data-section" id="pipeline">
+      <div class="wrap">
+        <div class="section-heading stack-mobile">
+          <div>
+            <p class="eyebrow dark">Maryland's public-cost pipeline</p>
+            <h2>Low wages do not end at the paycheck.</h2>
+            <p class="section-copy">The measurable path runs from working households with insufficient income, through SNAP, into food purchases at authorized retailers—and increasingly onto Maryland's own budget.</p>
+          </div>
+          <span class="data-stamp">Latest sources: FY2025–FY2027</span>
+        </div>
+
+        <div class="pipeline" aria-label="Flow of low wages through SNAP and retailers to Maryland budget pressure">
+          <article class="pipeline-node">
+            <span class="node-index">01</span>
+            <p class="node-kicker">Work that does not cover need</p>
+            <strong>36%</strong>
+            <p>of adult Maryland SNAP recipients were employed in the 2025 study.<sup><a href="#source-1">1</a></sup></p>
+            <a href="https://archive.hshsl.umaryland.edu/bitstreams/382a4721-0f10-4279-9249-7804fcf767d4/download" target="_blank" rel="noreferrer">View source [1]</a>
+          </article>
+          <span class="pipeline-arrow" aria-hidden="true">→</span>
+          <article class="pipeline-node">
+            <span class="node-index">02</span>
+            <p class="node-kicker">SNAP participation</p>
+            <strong>675,100</strong>
+            <p>Marylanders received SNAP in an average month in federal fiscal 2025.<sup><a href="#source-2">2</a></sup></p>
+            <a href="https://usafacts.org/answers/how-many-people-receive-snap-benefits-in-the-us-every-month/state/maryland/" target="_blank" rel="noreferrer">View source [2]</a>
+          </article>
+          <span class="pipeline-arrow" aria-hidden="true">→</span>
+          <article class="pipeline-node">
+            <span class="node-index">03</span>
+            <p class="node-kicker">Benefits become food spending</p>
+            <strong>$1.69B</strong>
+            <p>in Maryland SNAP benefits budgeted for fiscal 2027, spent through authorized retailers.<sup><a href="#source-3">3</a></sup></p>
+            <a href="https://mgaleg.maryland.gov/pubs/budgetfiscal/2027fy-budget-docs-operating-N00I00-DHS-Family-Investment.pdf" target="_blank" rel="noreferrer">View source [3]</a>
+          </article>
+          <span class="pipeline-arrow" aria-hidden="true">→</span>
+          <article class="pipeline-node emphasis">
+            <span class="node-index">04</span>
+            <p class="node-kicker">Retail revenue</p>
+            <strong>Authorized retailers</strong>
+            <p>receive the purchases. This includes local stores, supermarkets, and large corporate chains.<sup><a href="#source-4">4</a></sup></p>
+            <a href="https://fns-prod.azureedge.us/data-research/data-visualization/snap-retailer-management-dashboard-fy25" target="_blank" rel="noreferrer">View source [4]</a>
+          </article>
+        </div>
+
+        <div class="evidence-note">
+          <div class="evidence-icon">!</div>
+          <p><b>The loop is real; the company-level allocation is not public.</b> The available data establish employment among recipients, statewide participation, total benefit spending, and retailer redemption. They do not disclose how much of Maryland's $1.69 billion is redeemed at any particular chain. The graphic therefore does not assign an invented dollar amount to Walmart, Amazon, McDonald's, or another company.</p>
+        </div>
+
+        <div class="budget-grid">
+          <div class="budget-intro">
+            <p class="eyebrow dark">The direct Maryland budget effect</p>
+            <h3>The federal cost shift turns a federally funded benefit into a State liability.</h3>
+            <p>Beginning October 2026, Maryland's administrative share rises from 50% to 75%. Benefit cost-sharing begins later and depends on the State's SNAP payment-error rate. Maryland's FY2024 rate was 13.64%, which is above the 10% threshold for the maximum 15% State share.<sup><a href="#source-3">3</a></sup></p>
+          </div>
+          <div class="budget-chart panel" role="img" aria-label="Maryland SNAP budget exposure: 43.12 million dollars added administration cost in fiscal 2027, 144 million benefit share in fiscal 2028, nearly 200 million in fiscal 2029, and 215 million in fiscal 2031">
+            <div class="chart-title">
+              <div><span>Forecast State exposure</span><b>Dollars in millions</b></div>
+              <span class="chart-key"><i></i> Benefit cost share</span>
+            </div>
+            <div class="budget-row">
+              <div class="year">FY27</div>
+              <div class="budget-track"><div class="budget-bar admin" style="--value:20.1%"><span>$43.12M</span></div></div>
+              <div class="bar-note">added administrative cost</div>
+            </div>
+            <div class="budget-row">
+              <div class="year">FY28</div>
+              <div class="budget-track"><div class="budget-bar" style="--value:67%"><span>$144M</span></div></div>
+              <div class="bar-note">benefit share, 3 quarters</div>
+            </div>
+            <div class="budget-row">
+              <div class="year">FY29</div>
+              <div class="budget-track"><div class="budget-bar" style="--value:93%"><span>~$200M</span></div></div>
+              <div class="bar-note">annualized benefit share</div>
+            </div>
+            <div class="budget-row">
+              <div class="year">FY31</div>
+              <div class="budget-track"><div class="budget-bar" style="--value:100%"><span>$215M</span></div></div>
+              <div class="bar-note">forecast benefit share</div>
+            </div>
+            <p class="chart-source">Source [3], pp. 47–51. The FY27 administrative figure and later benefit-share forecasts are separate cost categories and should not be treated as one continuous series.</p>
+          </div>
+        </div>
+
+        <div class="math-strip">
+          <div>
+            <span>Why wages matter</span>
+            <p>SNAP benefits are calculated from net household income. A wage increase can therefore reduce benefit need, although the change is household-specific and not dollar-for-dollar.<sup><a href="#source-5">5</a></sup></p>
+          </div>
+          <div class="math-arrow" aria-hidden="true">→</div>
+          <div>
+            <span>Why the excise tax matters</span>
+            <p>If a covered employer keeps wages below the benchmark, the proposed tax collects revenue that can offset part of the public fiscal cost.</p>
+          </div>
+          <div class="math-arrow" aria-hidden="true">→</div>
+          <div>
+            <span>The intended result</span>
+            <p>Either workers receive more income, or Maryland receives revenue. A successful behavioral tax may raise little because employers close the wage gap.</p>
+          </div>
+        </div>
+
+        <div class="sources-box">
+          <p class="eyebrow dark">Sources and evidentiary notes</p>
+          <ol>
+            <li id="source-1"><a href="https://archive.hshsl.umaryland.edu/bitstreams/382a4721-0f10-4279-9249-7804fcf767d4/download" target="_blank" rel="noreferrer">University of Maryland School of Social Work, <i>Maryland SNAP Households, 2025</i></a> (May 2026), employment and earnings findings. This is the Maryland-specific basis for the 36% figure.</li>
+            <li id="source-2"><a href="https://usafacts.org/answers/how-many-people-receive-snap-benefits-in-the-us-every-month/state/maryland/" target="_blank" rel="noreferrer">USAFacts, <i>How many people receive SNAP benefits in Maryland every month?</i></a> (updated June 5, 2026), reporting USDA Food and Nutrition Service FY2025 participation data.</li>
+            <li id="source-3"><a href="https://mgaleg.maryland.gov/pubs/budgetfiscal/2027fy-budget-docs-operating-N00I00-DHS-Family-Investment.pdf" target="_blank" rel="noreferrer">Maryland Department of Legislative Services, <i>Analysis of the FY 2027 Maryland Executive Budget: Family Investment Administration</i></a> (2026), pp. 30–32 and 47–51. This source supports the $1.69 billion benefit budget, administrative match change, 13.64% error rate, cost-share tiers, and FY2028–FY2031 forecasts.</li>
+            <li id="source-4"><a href="https://fns-prod.azureedge.us/data-research/data-visualization/snap-retailer-management-dashboard-fy25" target="_blank" rel="noreferrer">U.S. Department of Agriculture, Food and Nutrition Administration, <i>SNAP Retailer Management Year End Summary FY 2025</i></a> (updated July 10, 2026), retailer authorization and redemption data by state and retailer type.</li>
+            <li id="source-5"><a href="https://www.fns.usda.gov/snap/recipient/eligibility" target="_blank" rel="noreferrer">U.S. Department of Agriculture, Food and Nutrition Administration, <i>SNAP Eligibility</i></a>, explaining the benefit calculation based on net monthly income and the maximum allotment.</li>
+          </ol>
+          <p class="source-caution"><b>Observed, forecast, and modeled numbers are kept separate.</b> Sources [1], [2], and [4] report observed program data. Source [3] includes enacted budget figures and official forecasts. The wage-shortfall calculator below is an illustrative proposal model using assumptions selected by the user; its outputs are not historical facts or a Maryland fiscal note.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="calculator">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">Scenario builder</p>
+          <h2>Set the policy assumptions</h2>
+        </div>
+        <button class="text-button" id="reset" type="button">Reset defaults</button>
+      </div>
+
+      <div class="calculator-grid">
+        <form class="controls panel" id="policyForm">
+          <fieldset>
+            <legend>Worker and employer</legend>
+            <label>Current hourly wage
+              <span class="input-wrap"><span>$</span><input id="currentWage" type="number" min="0" step="0.25" value="15"></span>
+            </label>
+            <label>Hours per week
+              <input id="hoursWeek" type="number" min="1" max="80" step="1" value="40">
+            </label>
+            <label>Covered Maryland employees
+              <input id="employees" type="number" min="1" step="1" value="500">
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Living-wage design</legend>
+            <label>Statewide gross hourly floor
+              <span class="input-wrap"><span>$</span><input id="stateFloor" type="number" min="0" step="0.25" value="22"></span>
+            </label>
+            <label>Current region
+              <select id="region">
+                <option value="0">Rest of Maryland — no supplement</option>
+                <option value="5" selected>Baltimore metro — 5% supplement</option>
+                <option value="12">Washington metro — 12% supplement</option>
+                <option value="custom">Custom supplement</option>
+              </select>
+            </label>
+            <label id="customRegionRow" hidden>Custom regional supplement
+              <span class="input-wrap suffix"><input id="customRegion" type="number" min="0" max="50" step="0.5" value="5"><span>%</span></span>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Tax and take-home assumptions</legend>
+            <label>Excise-tax multiplier
+              <span class="input-wrap suffix"><input id="taxRate" type="number" min="0" max="500" step="5" value="125"><span>%</span></span>
+            </label>
+            <label>Employer payroll-tax rate
+              <span class="input-wrap suffix"><input id="employerPayroll" type="number" min="0" max="30" step="0.05" value="7.65"><span>%</span></span>
+            </label>
+            <label>Worker payroll-tax rate
+              <span class="input-wrap suffix"><input id="workerPayroll" type="number" min="0" max="30" step="0.05" value="7.65"><span>%</span></span>
+            </label>
+            <label>Worker effective income-tax rate
+              <span class="input-wrap suffix"><input id="incomeTax" type="number" min="0" max="50" step="0.5" value="10"><span>%</span></span>
+            </label>
+          </fieldset>
+        </form>
+
+        <div class="results" aria-live="polite">
+          <div class="result-banner panel">
+            <div>
+              <p class="mini-label">Applicable living-wage benchmark</p>
+              <p class="big-number" id="benchmark">$23.10/hr</p>
+            </div>
+            <div class="shortfall-pill"><span id="shortfall">$8.10</span> hourly shortfall</div>
+          </div>
+
+          <div class="cards">
+            <article class="metric-card coral">
+              <p>Employer tax if wages stay unchanged</p>
+              <strong id="taxTotal">$10.53M</strong>
+              <span id="taxWorker">$21,060 per worker / year</span>
+            </article>
+            <article class="metric-card green">
+              <p>Employer cost to close the wage gap</p>
+              <strong id="raiseCost">$9.07M</strong>
+              <span>Includes employer payroll tax</span>
+            </article>
+            <article class="metric-card gold">
+              <p>Workers' estimated take-home gain</p>
+              <strong id="takeHomeGain">$6.94M</strong>
+              <span id="takeHomeWorker">$13,876 per worker / year</span>
+            </article>
+            <article class="metric-card ink">
+              <p>Extra cost of paying tax instead</p>
+              <strong id="taxPremium">$1.46M</strong>
+              <span id="premiumPercent">16.1% above the raise cost</span>
+            </article>
+          </div>
+
+          <div class="panel comparison">
+            <div class="panel-title">
+              <div>
+                <p class="mini-label">Employer choice</p>
+                <h3>Pay workers or pay the State</h3>
+              </div>
+              <span class="badge" id="choiceBadge">Raising wages costs less</span>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label"><span>Close wage gap</span><b id="barRaiseLabel">$9.07M</b></div>
+              <div class="bar-track"><div class="bar green-bar" id="raiseBar"></div></div>
+            </div>
+            <div class="bar-row">
+              <div class="bar-label"><span>Keep wages + pay tax</span><b id="barTaxLabel">$10.53M</b></div>
+              <div class="bar-track"><div class="bar coral-bar" id="taxBar"></div></div>
+            </div>
+            <p class="explain" id="choiceExplanation"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tinted">
+      <div class="wrap">
+        <div class="section-heading stack-mobile">
+          <div>
+            <p class="eyebrow dark">Behavioral response</p>
+            <h2>What if the employer raises wages partway?</h2>
+            <p class="section-copy">Move the slider. The model treats the chosen percentage as the share of the wage gap the employer closes.</p>
+          </div>
+          <div class="slider-box">
+            <output id="responseOutput" for="response">50%</output>
+            <input id="response" type="range" min="0" max="100" step="5" value="50">
+          </div>
+        </div>
+        <div class="response-grid">
+          <article><span>New hourly wage</span><strong id="partialWage">$19.05</strong></article>
+          <article><span>Annual gross raises</span><strong id="partialRaises">$4.21M</strong></article>
+          <article><span>Estimated worker take-home gain</span><strong id="partialTakeHome">$3.47M</strong></article>
+          <article><span>Excise-tax revenue</span><strong id="partialRevenue">$5.27M</strong></article>
+        </div>
+        <p class="callout" id="responseNarrative"></p>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <div class="section-heading stack-mobile">
+        <div>
+          <p class="eyebrow dark">Location test</p>
+          <h2>Would moving the jobs lower the tax?</h2>
+          <p class="section-copy">The proposal follows where employees physically work—not the company's headquarters or payroll address.</p>
+        </div>
+      </div>
+      <div class="relocation-grid">
+        <div class="panel relocation-controls">
+          <label>Alternative region supplement
+            <span class="input-wrap suffix"><input id="altSupplement" type="number" min="0" max="50" step="0.5" value="0"><span>%</span></span>
+          </label>
+          <label>One-time cost to move each job
+            <span class="input-wrap"><span>$</span><input id="moveCost" type="number" min="0" step="100" value="5000"></span>
+          </label>
+          <p class="tiny">This simplified test assumes wages and employment stay unchanged after relocation. Real decisions would also include property, transport, hiring, productivity, and turnover costs.</p>
+        </div>
+        <div class="panel relocation-result">
+          <div class="location-columns">
+            <div><span>Current-region annual tax</span><strong id="currentRegionTax">$10.53M</strong></div>
+            <div><span>Alternative-region annual tax</span><strong id="altRegionTax">$9.10M</strong></div>
+          </div>
+          <div class="divider"></div>
+          <div class="location-columns">
+            <div><span>Annual tax savings</span><strong id="relocationSavings">$1.43M</strong></div>
+            <div><span>Simple payback period</span><strong id="payback">1.7 years</strong></div>
+          </div>
+          <p class="explain" id="relocationExplanation"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="methodology">
+      <div class="wrap">
+        <p class="eyebrow">Transparent methodology</p>
+        <h2>Exactly how the calculator works</h2>
+        <div class="method-grid">
+          <article><span>01</span><h3>Regional benchmark</h3><code>floor &times; (1 + supplement)</code></article>
+          <article><span>02</span><h3>Annual wage gap</h3><code>max(benchmark − wage, 0) &times; hours &times; 52</code></article>
+          <article><span>03</span><h3>Proposed excise tax</h3><code>annual wage gap &times; tax multiplier</code></article>
+          <article><span>04</span><h3>Cost of a full raise</h3><code>annual wage gap &times; (1 + employer payroll rate)</code></article>
+          <article><span>05</span><h3>Worker take-home gain</h3><code>gross raise &times; (1 − payroll rate − effective income-tax rate)</code></article>
+          <article><span>06</span><h3>Partial response</h3><code>raise share closes gap; tax applies to remainder</code></article>
+        </div>
+        <div class="disclaimer">
+          <h3>What this model does—and does not—claim</h3>
+          <p>This is an illustrative policy calculator, not a revenue estimate, tax return, or legal conclusion. It uses user-selected effective rates and assumes 52 working weeks. It does not model deductions, credits, benefit eligibility, wage incidence, turnover, price changes, automation, reduced hours, or interstate relocation. Those effects require empirical analysis.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>Maryland Wage-Shortfall Tax Model</span>
+      <span>Illustrative academic policy project</span>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
